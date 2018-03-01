@@ -23,6 +23,30 @@ h1 {
   color: #57606f;
 }
 
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 2.2rem;
+}
+
+input {
+  height: 3.5rem;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+label {
+  font-size: 2rem;
+}
+
 /***********************/
 /* REUSABLE COMPONENTS */
 /***********************/

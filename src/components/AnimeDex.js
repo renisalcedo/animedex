@@ -28,8 +28,8 @@ class AnimeDex extends Component {
         <div className="container">
           <form onSubmit={this.handleSubmit} >
             <label>Search</label>
-            <input onChange={this.onChange} type="text" />
-            <button>Submit</button>
+            <input value={this.state.input} onChange={this.onChange} type="text" />
+            <button className="btn btn-primary">Submit</button>
           </form>
 
           {this.displayAnime()}
@@ -65,6 +65,9 @@ class AnimeDex extends Component {
         image: data.posterImage.medium
       }
     })
+
+    // Will clear input after submit
+    this.setState({ input: '' })
   }
 
   displayAnime() {
@@ -75,12 +78,12 @@ class AnimeDex extends Component {
       // Will return data nicely formatted in wrapped html
       return (
         <div className="animeBox">
-          <img className="img-responsive" src={anime.image} />
+          <img className="img-responsive" src={anime.image} alt="Anime image" />
 
           <div className="animeInfo">
             <h2><span className="desc">Title:</span> {anime.title}</h2>
             <p><span className="desc">Synopsis:</span> {anime.synopsis}</p>
-            <small><span className="desc">Rating:</span> {anime.rating}</small>
+            <h3><span className="desc">Rating:</span> {anime.rating}</h3>
           </div>
         </div>
       )
