@@ -26,9 +26,10 @@ h1 {
 /***********************/
 /* REUSABLE COMPONENTS */
 /***********************/
-.container {
-  max-width: 1480px;
-  margin: 0 auto;
+span.desc {
+  font-size: 3rem;
+  color: #57606f;
+  font-weight: bold;
 }
 
 /**********************/
@@ -40,4 +41,16 @@ h1 {
   background: #1CD8D2;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/*****************************/
+/******* Display Anime *******/
+/*****************************/
+.animeBox {
+  margin-top: 3rem;
+  display: flex;
+}
+
+.animeInfo {
+  margin-left: 2rem;
 }

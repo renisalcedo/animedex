@@ -75,12 +75,12 @@ class AnimeDex extends Component {
       // Will return data nicely formatted in wrapped html
       return (
         <div className="animeBox">
-          <img src={anime.image} />
+          <img className="img-responsive" src={anime.image} />
 
           <div className="animeInfo">
-            <h2>{anime.title}</h2>
-            <p>{anime.synopsis}</p>
-            <small>{anime.rating}</small>
+            <h2><span className="desc">Title:</span> {anime.title}</h2>
+            <p><span className="desc">Synopsis:</span> {anime.synopsis}</p>
+            <small><span className="desc">Rating:</span> {anime.rating}</small>
           </div>
         </div>
       )
