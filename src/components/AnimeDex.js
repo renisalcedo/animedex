@@ -5,13 +5,21 @@ class AnimeDex extends Component {
   constructor(props) {
     super(props)
 
+    // User input and anime state
     this.state = {
       input: '',
-      anime: {title: '',  synopsis: '', rating: 0, image: ''}
+      anime: {
+        title: 'Naruto',
+        synopsis: 'Moments prior to Naruto Uzumaki\'s birth, a huge demon known as the Kyuubi, the Nine-Tailed Fox, attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the Kyuubi\'s rampage, the leader of the village, the Fourth Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto.  Now, Naruto is a hyperactive and knuckle-headed ninja still living in Konohagakure. Shunned because of the Kyuubi inside him, Naruto struggles to find his place in the village, while his burning desire to become the Hokage of Konohagakure leads him not only to some great new friends, but also some deadly foes.  [Written by MAL Rewrite]',
+        rating: 75.8,
+        image: 'https://media.kitsu.io/anime/poster_images/11/medium.jpg?1417705323'
+      }
     }
 
+    // Definition of all binding for functions
     this.onChange = this.onChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.displayAnime = this.displayAnime.bind(this)
   }
 
   render() {
@@ -24,8 +32,7 @@ class AnimeDex extends Component {
             <button>Submit</button>
           </form>
 
-          <div className="anime-info">
-          </div>
+          {this.displayAnime()}
         </div>
       </section>
     )
@@ -43,9 +50,10 @@ class AnimeDex extends Component {
   // user submits data
   async handleSubmit(e) {
     e.preventDefault()
+    const url = 'https://kitsu.io/api/edge//anime'
 
     // Gets the data for the anime requested
-    const result = await axios.get(`https://kitsu.io/api/edge//anime?filter[text]=${this.state.input}`)
+    const result = await axios.get(`${url}?filter[text]=${this.state.input}`)
     const data = result.data.data[0].attributes
 
     // Updates state with anime obj
@@ -57,6 +65,26 @@ class AnimeDex extends Component {
         image: data.posterImage.medium
       }
     })
+  }
+
+  displayAnime() {
+    // Will only works if there is any data on state
+    if(this.state.anime) {
+      const anime = this.state.anime
+
+      // Will return data nicely formatted in wrapped html
+      return (
+        <div className="animeBox">
+          <img src={anime.image} />
+
+          <div className="animeInfo">
+            <h2>{anime.title}</h2>
+            <p>{anime.synopsis}</p>
+            <small>{anime.rating}</small>
+          </div>
+        </div>
+      )
+    }
   }
 }
 
