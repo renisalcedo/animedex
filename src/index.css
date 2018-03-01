@@ -1,0 +1,43 @@
+/**********************/
+/***** SOFT RESET *****/
+/**********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f1f2f6;
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 5rem;
+  color: #57606f;
+}
+
+/***********************/
+/* REUSABLE COMPONENTS */
+/***********************/
+.container {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+/**********************/
+/******* HEADER *******/
+/**********************/
+.foreground {
+  width: 100%;
+  height: 12rem;
+  background: #1CD8D2;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
